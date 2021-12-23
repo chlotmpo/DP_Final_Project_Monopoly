@@ -43,32 +43,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BankPublisher.cs" />
+    <Compile Include="AbstractObserver.cs" />
     <Compile Include="BoardSingleton.cs" />
-    <Compile Include="Card.cs" />
-    <Compile Include="CardCreator.cs" />
-    <Compile Include="ChanceCard.cs" />
-    <Compile Include="ChanceCardCreator.cs" />
-    <Compile Include="ChanceSquare.cs" />
-    <Compile Include="ChanceSquareCreator.cs" />
-    <Compile Include="CommunityChestCard.cs" />
-    <Compile Include="CommunityChestCardCreator.cs" />
-    <Compile Include="CommunityChestSquare.cs" />
-    <Compile Include="CommunityChestSquareCreator.cs" />
-    <Compile Include="CornerSquare.cs" />
-    <Compile Include="CornerSquareCreator.cs" />
-    <Compile Include="Observer.cs" />
+    <Compile Include="CellTypeException.cs" />
+    <Compile Include="ICell.cs" />
+    <Compile Include="CellCreator.cs" />
+    <Compile Include="CellFactory.cs" />
+    <Compile Include="Chance.cs" />
+    <Compile Include="CommunityChest.cs" />
+    <Compile Include="Jail.cs" />
+    <Compile Include="Neutral.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PropertyDeed.cs" />
-    <Compile Include="PropertyDeedCreator.cs" />
-    <Compile Include="PropertySquare.cs" />
-    <Compile Include="PropertySquareCreator.cs" />
-    <Compile Include="Square.cs" />
-    <Compile Include="SquareCreator.cs" />
-    <Compile Include="TaxSquare.cs" />
-    <Compile Include="TaxSquareCreator.cs" />
+    <Compile Include="Property.cs" />
+    <Compile Include="Tax.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
