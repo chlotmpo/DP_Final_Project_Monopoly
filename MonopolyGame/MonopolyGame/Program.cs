@@ -6,10 +6,17 @@ using System.Threading.Tasks;
 
 namespace MonopolyGame
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
+            BoardSingleton board = BoardSingleton.getInstance;
+            BoardSingleton board2 = BoardSingleton.getInstance;
+
+            Console.WriteLine(board.ToString());
+            Console.WriteLine(board2.ToString());
+
+            Console.ReadKey();
         }
     }
 }
