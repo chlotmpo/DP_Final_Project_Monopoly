@@ -9,20 +9,18 @@ namespace MonopolyGame
     public sealed class BoardSingleton
     {
 
-        // ATTRIBUTES 
-
+        #region Attributes 
         private ICell[] boardGame;
         private static BoardSingleton instance = null;
         private static readonly object padlock = new object();
         public static int number_instance;
-        
+        #endregion
 
-        // CONSTRUCTORS 
-
+        #region Constructors
         /// <summary>
         /// Private constructor in order to create a unique instance of the game board. This method implements and creates the structure of the board.
         /// </summary>
-        BoardSingleton()
+        private BoardSingleton()
         {    
 
             // first we create a new tab with 40 elements that will represents the board game with 40 possibles positions
@@ -71,7 +69,7 @@ namespace MonopolyGame
             boardGame[39] = new Property("Mayfair", 400, "Dark Blue", 2, 39);
 
         }
-        
+
         /// <summary>
         /// Method used to create a unique instance of the game board based on the singleton design pattern
         /// </summary>
@@ -91,16 +89,18 @@ namespace MonopolyGame
                 }
             }
         }
+        #endregion
 
-        // PROPERTIES
+        #region Properties
         public ICell[] BoardGame
         {
             get { return boardGame; }
             set { this.boardGame = value; }
         }
+        #endregion
 
-
-        // METHODS
+        #region Methods
+        #endregion
 
     }
 }

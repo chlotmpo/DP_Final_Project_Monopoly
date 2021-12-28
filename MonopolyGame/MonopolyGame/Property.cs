@@ -7,11 +7,9 @@ using System.Threading.Tasks;
 namespace MonopolyGame
 {
     public class Property : ICell
-
     {
-        //ATTRIBUTES 
+        #region Attributes
         // TODO : define all the attributes that we need to correclty instantiate a property cell
-
         private string name; //represents the name of the property
         private int price; //represents the price of the property to buy it the first time 
         private int debt; //represents the price that a player will must pay if he land on this property and if it is not free
@@ -23,9 +21,9 @@ namespace MonopolyGame
         private bool hotel;
         private List<AbstractObserver> addEventObserver;
         private int position;
+        #endregion
 
-
-        // CONSTRUCTORS 
+        #region Constructors
         public Property() { }
         public Property(string name, int price, string color, int number_family, int position)
         {
@@ -41,8 +39,9 @@ namespace MonopolyGame
             addEventObserver = new List<AbstractObserver>();
             this.position = position;
         }
+        #endregion
 
-        // PROPERTIES
+        #region Properties of properties :)
         public int Price
         {
             get { return price; }
@@ -89,10 +88,9 @@ namespace MonopolyGame
             get { return position; }
             set { position = value; }
         }
+        #endregion
 
-
-        // METHODS
-
+        #region Methods
         public void notifyObserver()
         {
             // TODO implement here
@@ -107,5 +105,8 @@ namespace MonopolyGame
         {
             return "Property name : " + name + "\nColor : " + color + "\nPosition : " + position;
         }
+
+        //public override string GetCellName(int position)  { return this.name; }
+        #endregion
     }
 }

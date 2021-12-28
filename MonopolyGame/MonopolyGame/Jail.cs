@@ -8,20 +8,22 @@ namespace MonopolyGame
 {
     public class Jail : ICell
     {
-        // ATTRIBUTES 
+        #region Attributes
         // TODO : define all the attributes that we need to correclty instantiate a jail cell
         private int position;
         private bool is_occupied; // give information if there is currently somoene in jail or not
+        #endregion
 
-        // CONSTRUCTORS
+        #region Constructors
         public Jail() { }
         public Jail(int position)
         {
             this.position = position;
             is_occupied = false;
         }
+        #endregion
 
-        // PROPERTIES 
+        #region Properties 
         public bool Is_occupied
         {
             get { return is_occupied; }
@@ -31,8 +33,9 @@ namespace MonopolyGame
         {
             get { return position; }
         }
+        #endregion
 
-        // METHODS
+        #region Methods
         /// <summary>
         /// Method that give current informations and description of the jail 
         /// </summary>
@@ -44,5 +47,8 @@ namespace MonopolyGame
             else content += "\nRight now, no one is in jail.";
             return content;
         }
+
+        //public override string GetCellName(int position) { return "Jail"; }
+        #endregion
     }
 }

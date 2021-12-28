@@ -8,19 +8,18 @@ namespace MonopolyGame
 {
     public class CommunityChest : ICell
     {
-        // ATTRIBUTES
+        #region Attributes
         // TODO : define all the attributes that we need to correclty instantiate a community chest cell
-
         private int number; // defines the number of the card
         private string message; // represents the message in the card for the player 
         private int bonus; // represents a money bonus for the player if the card said so 
         private int debt; // represent an amount of moner that the player will have to pay if the card said so
         private bool free_jail; // represents the card that can save a player from jail
         private bool go_in_jail; // represents the card that can send the player to the jail
-        private int position; // represents the position of where the chance cell is 
+        private int position; // represents the position of where the community chest cell is 
+        #endregion 
 
-
-        // CONSTRUCTORS  
+        #region Constructors  
         public CommunityChest() { }
         public CommunityChest(int position)
         {
@@ -32,9 +31,10 @@ namespace MonopolyGame
             number = Community_Chest_number();
             message = Community_Chest_message();
         }
+        #endregion
 
 
-        // PROPERTIES 
+        #region Properties 
         public int Number
         {
             get { return number; }
@@ -63,9 +63,9 @@ namespace MonopolyGame
             get { return position; }
             set { this.position = value; }
         }
+        #endregion
 
-        // METHODS 
-
+        #region Methods
         /// <summary>
         /// Method that will generate a random int between 1 and 10
         /// </summary>
@@ -147,5 +147,8 @@ namespace MonopolyGame
             else if (debt != 0) { content += "\nYou have to pay $" + debt + " to the bank"; }
             return content;
         }
+
+        //public override string GetCellName(int position) { return $"CommunityChest ({position})"; }
+        #endregion
     }
 }

@@ -8,9 +8,8 @@ namespace MonopolyGame
 {
     public class Chance : ICell
     {
-        // ATTRIBUTES 
+        #region Attributes
         // TODO : define all the attributes that we need to correclty instantiate a chance cell
-
         private int number; // defines the number of the card
         private string message; // represents the message in the card for the player 
         private int bonus; // represents a money bonus for the player if the card said so 
@@ -18,9 +17,9 @@ namespace MonopolyGame
         private bool free_jail; // represents the card that can save a player from jail
         private bool go_in_jail; // represents the card that can send the player to the jail
         private int position; // represents the position of where the chance cell is 
+        #endregion
 
-
-        // CONSTRUCTORS 
+        #region Constructors 
         public Chance () { }
         public Chance(int position)
         {
@@ -30,8 +29,9 @@ namespace MonopolyGame
             free_jail = false;
             go_in_jail = false;
         }
+        #endregion
 
-        // PROPERTIES 
+        #region Properties 
         public int Number
         {
             get { return number; }
@@ -60,9 +60,9 @@ namespace MonopolyGame
             get { return position; }
             set { this.position = value; }
         }
+        #endregion
 
-        // METHODS : 
-
+        #region Mzethods
         /// <summary>
         /// Method that will generate a random int between 1 and 10
         /// </summary>
@@ -149,5 +149,9 @@ namespace MonopolyGame
             else if (debt != 0) { content += "\nYou have to pay $" + debt + " to the bank"; }
             return content;
         }
+
+        //public override string GetCellName(int position)  { return this.name; }
+
+        #endregion
     }
 }

@@ -9,5 +9,8 @@ namespace MonopolyGame
     public interface ICell
     {
         int Position { get; }
+        //string GetCellName(int position);
     }
+
+    
 }

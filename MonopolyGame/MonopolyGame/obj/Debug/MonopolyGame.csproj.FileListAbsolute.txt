@@ -5,3 +5,10 @@ C:\Users\chloe\Chlo\Documents\ESILV\A4\Design Pattern & Soft Dev\Projet Final\DP
 C:\Users\chloe\Chlo\Documents\ESILV\A4\Design Pattern & Soft Dev\Projet Final\DP_Final_Project_Monopoly\MonopolyGame\MonopolyGame\bin\Debug\MonopolyGame.pdb
 C:\Users\chloe\Chlo\Documents\ESILV\A4\Design Pattern & Soft Dev\Projet Final\DP_Final_Project_Monopoly\MonopolyGame\MonopolyGame\obj\Debug\MonopolyGame.exe
 C:\Users\chloe\Chlo\Documents\ESILV\A4\Design Pattern & Soft Dev\Projet Final\DP_Final_Project_Monopoly\MonopolyGame\MonopolyGame\obj\Debug\MonopolyGame.pdb
+C:\Users\mt181547\OneDrive - De Vinci\ESILV - A4 (One-Drive)\Semestre 7\Design Pattern & Soft dev\FinalProject\DP_Final_Project_Monopoly\MonopolyGame\MonopolyGame\obj\Debug\MonopolyGame.csproj.AssemblyReference.cache
+C:\Users\mt181547\OneDrive - De Vinci\ESILV - A4 (One-Drive)\Semestre 7\Design Pattern & Soft dev\FinalProject\DP_Final_Project_Monopoly\MonopolyGame\MonopolyGame\obj\Debug\MonopolyGame.csproj.CoreCompileInputs.cache
+C:\Users\mt181547\OneDrive - De Vinci\ESILV - A4 (One-Drive)\Semestre 7\Design Pattern & Soft dev\FinalProject\DP_Final_Project_Monopoly\MonopolyGame\MonopolyGame\obj\Debug\MonopolyGame.exe
+C:\Users\mt181547\OneDrive - De Vinci\ESILV - A4 (One-Drive)\Semestre 7\Design Pattern & Soft dev\FinalProject\DP_Final_Project_Monopoly\MonopolyGame\MonopolyGame\obj\Debug\MonopolyGame.pdb
+C:\Users\mt181547\OneDrive - De Vinci\ESILV - A4 (One-Drive)\Semestre 7\Design Pattern & Soft dev\FinalProject\DP_Final_Project_Monopoly\MonopolyGame\MonopolyGame\bin\Debug\MonopolyGame.exe.config
+C:\Users\mt181547\OneDrive - De Vinci\ESILV - A4 (One-Drive)\Semestre 7\Design Pattern & Soft dev\FinalProject\DP_Final_Project_Monopoly\MonopolyGame\MonopolyGame\bin\Debug\MonopolyGame.exe
+C:\Users\mt181547\OneDrive - De Vinci\ESILV - A4 (One-Drive)\Semestre 7\Design Pattern & Soft dev\FinalProject\DP_Final_Project_Monopoly\MonopolyGame\MonopolyGame\bin\Debug\MonopolyGame.pdb

@@ -8,13 +8,14 @@ namespace MonopolyGame
 {
     public class Tax : ICell
     {
-        // ATTRIBUTES 
+        #region Attributes 
         // TODO : define all the attributes that we need to correclty instantiate a tax cell
         private double taxAmount;
         private string name;
         private int position;
+        #endregion
 
-        // CONSTRUCTORS
+        #region Constructors
         public Tax() { }
         public Tax(string name, double taxAmount, int position)
         {
@@ -22,8 +23,9 @@ namespace MonopolyGame
             this.taxAmount = taxAmount;
             this.position = position;
         }
+        #endregion
 
-        // PROPERTIES
+        #region Properties
         public double TaxAmount
         {
             get { return taxAmount; }
@@ -36,8 +38,9 @@ namespace MonopolyGame
         {
             get { return position; }
         }
+        #endregion
 
-        // METHODS
+        #region Methods
         /// <summary>
         /// Method that give a description and informations of the current tax cell
         /// </summary>
@@ -46,5 +49,6 @@ namespace MonopolyGame
         {
             return "Cell position : " + position + "\nYou are on a tex cell. That means that you will have to pay an amount of money to the bank.\nPay now $" + taxAmount + ".";
         }
+        #endregion
     }
 }

@@ -29,12 +29,40 @@ namespace MonopolyGame
                 Console.WriteLine("Here are your current situation.");
                 PlayerSituation(list_players);
 
-                Console.WriteLine("\nPress any button to continue...");
-                string button = Console.ReadLine();
+                Console.WriteLine("\nPress any key to continue...");
+                Console.ReadKey();
 
                 //Beginning of the game
                 Console.Clear();
                 Console.WriteLine("LEEEET'S GOOOOOO ! The game is starting righ now !");
+
+
+                int turnNumber = 1;
+
+
+                while(true) // infinite loop (rajouter condition de sortie si un joueur gagne)
+                {
+                    for(int i = 0; i < list_players.Count; i ++)
+                    {
+                        Console.Clear();
+                        Console.Write($"{list_players[i].Name}'s turn: \n" +
+                                      $"Money: {list_players[i].Money}$ \n" +
+                                      //$"Position: {boardGame.BoardGame[list_players[i].Current_position]}");
+                                      $"Position: {list_players[i].Current_position}");
+
+
+                        list_players[i].Plays();
+                        Console.ReadKey();
+                    }
+                    Console.WriteLine("End of turn " + turnNumber);
+                    turnNumber++;
+                    Console.ReadKey();
+                }
+
+
+
+
+
             }
             else if (rep == "NO") // if the players do not want to play
             {
@@ -87,6 +115,8 @@ namespace MonopolyGame
                 Console.WriteLine(list_player[i].ToString());
             }
         }
+
+
 
 
         static void Main(string[] args)

@@ -8,16 +8,16 @@ namespace MonopolyGame
 {
     public class Special : ICell
     {
-        // ATTRIBUTES 
+        #region Attributes
         // TODO : define all the attributes that we need to correclty instantiate a special cell
-
         private string name; // represents the name of this special cell
         private int position;
         private bool go_cell; // represents if the cell is the go cell or not 
         private bool go_to_jail; // represents if the cell is the cell go to jail or not
         private bool free_parking; // represents if the cell is the cell free parking or not
+        #endregion
 
-        // CONSTRUCTORS 
+        #region Constructors
         public Special() { }
         public Special(string name, int position, bool go_cell, bool go_to_jail, bool free_parking)
         {
@@ -27,8 +27,9 @@ namespace MonopolyGame
             this.go_to_jail = go_to_jail;
             this.free_parking = free_parking;
         }
+        #endregion
 
-        // PROPERTIES
+        #region Properties
         public string Name
         {
             get { return name; }
@@ -49,8 +50,9 @@ namespace MonopolyGame
         {
             get { return free_parking; }
         }
+        #endregion
 
-        // METHODS 
+        #region Methods 
         /// <summary>
         /// Method that give a description of the current neutral cell
         /// </summary>
@@ -63,5 +65,6 @@ namespace MonopolyGame
             else if (free_parking) return content += "\nThis is the free parking cell. You have nothing to do here, you can rest peacfully :).";
             else return content;
         }
+        #endregion
     }
 }
