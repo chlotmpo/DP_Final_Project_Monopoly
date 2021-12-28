@@ -52,7 +52,7 @@
     <Compile Include="Chance.cs" />
     <Compile Include="CommunityChest.cs" />
     <Compile Include="Jail.cs" />
-    <Compile Include="Neutral.cs" />
+    <Compile Include="Special.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

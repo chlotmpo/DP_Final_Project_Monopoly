@@ -35,7 +35,7 @@ namespace MonopolyGame
                     break;
 
                 case CellType.NEUTRAL:
-                    return new Neutral();
+                    return new Special();
                     break;
 
                 case CellType.TAX:
