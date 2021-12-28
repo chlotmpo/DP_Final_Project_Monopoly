@@ -102,5 +102,10 @@ namespace MonopolyGame
         {
             return "Cell position : " + position + "\nYou are on a property.\nProperty name : " + name + "\nColor : " + color + "\nPrice : " + price + "\nPosition : " + position;
         }
+
+        public string DescriptionProperty()
+        {
+            return "Property name : " + name + "\nColor : " + color + "\nPosition : " + position;
+        }
     }
 }
