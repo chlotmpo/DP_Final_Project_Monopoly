@@ -28,6 +28,7 @@ namespace MonopolyGame
             debt = 0;
             free_jail = false;
             go_in_jail = false;
+            Draw_Chance();
         }
         #endregion
 
@@ -44,6 +45,11 @@ namespace MonopolyGame
         {
             get { return bonus; }
             set { bonus = value; }
+        }
+        public int Debt
+        {
+            get { return debt; }
+            set { debt = value; }
         }
         public bool Free_jail
         {
@@ -62,7 +68,7 @@ namespace MonopolyGame
         }
         #endregion
 
-        #region Mzethods
+        #region Methods
         /// <summary>
         /// Method that will generate a random int between 1 and 10
         /// </summary>
