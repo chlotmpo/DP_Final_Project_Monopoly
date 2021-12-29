@@ -17,6 +17,7 @@ namespace MonopolyGame
         private int fails_to_exit_jail; // represents the number of unsuccessful attempts to exit jail (max = 3 attemps)
         private bool visit_only; // represents the status of the player if he is on visit only in the jail cell
         private string message; // attribute that correspond to the message that will be send to the player as an observer
+        private bool lose; // will be true is the player lose
 
         Random rdm = new Random();
         #endregion
@@ -31,6 +32,7 @@ namespace MonopolyGame
             is_in_jail = false;
             fails_to_exit_jail = 0;
             visit_only = false;
+            lose = false;
         }
         #endregion
 
@@ -70,6 +72,15 @@ namespace MonopolyGame
             get { return visit_only; }
             set { visit_only = value; }
         }
+        public bool Lose
+        {
+            get { return lose; }
+            set { lose = value; }
+        }
+        public Random Rdm
+        {
+            get { return rdm; }
+        }
         #endregion
 
         #region Methods 
@@ -96,6 +107,8 @@ namespace MonopolyGame
         /// <param name="dice"> The set of 2 dice </param>
         public void MoveToPosition(int[] dice)
         {
+            visit_only = false;
+
             int move_number = dice[0] + dice[1];
             int actual_position = this.current_position;
 
@@ -128,9 +141,11 @@ namespace MonopolyGame
         public bool CanExitJail(int[] dice)
         {
             bool exit_jail = false;
+            Console.WriteLine("You're in jail. Number of turn : " + (fails_to_exit_jail + 1));
 
             if (dice[0] == dice[1]) // The player hit a set of doubles
             {
+                Console.WriteLine("Wow! This double allows you to be free!");
                 exit_jail = true; // The player can exit of jail
                 this.fails_to_exit_jail = 0;
             }
@@ -138,11 +153,13 @@ namespace MonopolyGame
             {
                 if (this.fails_to_exit_jail == 2) // The player failed to roll both dice with the same value for three times in a row (i.e. his previous two turns after moving to jail and his current turn).
                 {
+                    Console.WriteLine("You wait 3 turns, that's enough :)");
                     exit_jail = true; // He is out of jail
                     this.fails_to_exit_jail = 0;
                 }
                 else // if(this.fails_to_exit_jail < 2)
                 {
+                    Console.WriteLine("Not this time ! :( This is not a double!");
                     exit_jail = false;
                     this.fails_to_exit_jail += 1; // The player stays in jail for another turn
                 }
@@ -152,93 +169,15 @@ namespace MonopolyGame
         }
 
         /// <summary>
-        /// 
+        /// Method that will verify if a player has enough money to buy something
         /// </summary>
-        /// <param name="doublesAllowed"></param>
-        public void Plays(int doublesAllowed = 2) // A player is only allowed to get 2 doubles in a row (if he hit 3 he goes to jail)
+        /// <param name="price">Price that we will compare with the money of the player</param>
+        /// <returns></returns>
+        public bool EnoughMoneyToBuy(int price)
         {
-            if (doublesAllowed > 0)
-            {
-                // DICE - A turn always start by a roll of dice
-                int[] dice = RollsDice(this.rdm);
-                Console.WriteLine("\nLet's roll the dice:");
-                Console.WriteLine(printDice(dice[0]));
-                Console.Write(printDice(dice[1]));
-
-
-
-                // MOVE AROUND THE BOARD
-
-                if (!this.is_in_jail) // If the player is not currently in jail
-                {
-                    MoveToPosition(dice);
-                }
-                else // If the player is in jail
-                {
-                    if (CanExitJail(dice))
-                    {
-                        Console.WriteLine(" Somehow you're free, runaway !");
-                        MoveToPosition(dice); // if the player eligible to get out of jail then he can move forward. Else, he stays in jail for another turn
-
-                    }
-                }
-
-                // ACTION ON CELL - Once arrived at his new position on the board, if he didn't end up in jail he can act with the cell under his feet.
-                if (!this.is_in_jail)
-                {
-                    Console.WriteLine("Action On Cell");
-                }
-
-                if (dice[0] == dice[1]) Plays(doublesAllowed - 1);
-            }
-            else
-            {
-                this.is_in_jail = true;
-                this.current_position = 10;
-            }
-        }
-
-        public string printDice(int diceNumber)
-        {
-            string one = " ----- \n" + 
-                         "|     |\n" +
-                         "|  o  |\n" +
-                         "|     |\n" +
-                         " ----- \n";
-
-            string two = " ----- \n" +
-                         "|   o |\n" +
-                         "|     |\n" +
-                         "| o   |\n" +
-                         " ----- \n";
-
-            string three = " ----- \n" +
-                           "| o   |\n" +
-                           "|  o  |\n" +
-                           "|   o |\n" +
-                           " ----- \n";
-
-            string four = " ----- \n" +
-                          "| o o |\n" +
-                          "|     |\n" +
-                          "| o o |\n" +
-                          " ----- \n";
-
-            string five = " ----- \n" +
-                          "| o o |\n" +
-                          "|  o  |\n" +
-                          "| o o |\n" +
-                          " ----- \n";
-
-            string six = " ----- \n" +
-                         "| o o |\n" +
-                         "| o o |\n" +
-                         "| o o |\n" +
-                         " ----- \n";
-            
-            string[] dice = new string[] { one, two, three, four, five, six };
-
-            return dice[diceNumber - 1];
+            bool enough = false;
+            if (price <= money) enough = true;
+            return enough;
         }
 
         /// <summary>
@@ -255,9 +194,9 @@ namespace MonopolyGame
             if (owned_properties.Count != 0)
             {
                 content += "\nYou own the following properties : ";
-                for (int i = 0; i <= owned_properties.Count; i++)
+                for (int i = 0; i <= owned_properties.Count -1; i++)
                 {
-                    Console.WriteLine(" - " + owned_properties[i].DescriptionProperty());
+                    content += owned_properties[i].DescriptionProperty();
                 }
             }
             else content += "\nYou own 0 property right now.";

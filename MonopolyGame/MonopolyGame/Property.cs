@@ -96,14 +96,19 @@ namespace MonopolyGame
             // TODO implement here
         }
 
-        public override string ToString()
+
+        public string ToString()
         {
-            return "Cell position : " + position + "\nYou are on a property.\nProperty name : " + name + "\nColor : " + color + "\nPrice : " + price + "\nPosition : " + position;
+            string content = "Cell position : " + position + "\nYou are on a property.\nProperty name : " + name + "\nColor : " + color + "\nPosition : " + position;
+            if (is_free) content += "Status of the property : FREE";
+            else content += "\nStatus of the property : NOT AVAILABLE";
+            return content;
         }
 
         public string DescriptionProperty()
         {
-            return "Property name : " + name + "\nColor : " + color + "\nPosition : " + position;
+            return "\nProperty Name : " + name + "\nColor : " + color + "\n"; 
+            //TODO : add debt price when we will defined it + add house and hotel if there are one
         }
 
         //public override string GetCellName(int position)  { return this.name; }
