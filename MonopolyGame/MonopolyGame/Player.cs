@@ -18,11 +18,13 @@ namespace MonopolyGame
         private bool visit_only; // represents the status of the player if he is on visit only in the jail cell
         private string message; // attribute that correspond to the message that will be send to the player as an observer
         private bool lose; // will be true is the player lose
+        private bool joker_exit_jail; //represents a card that allow the player to be free of jail. Can be delivered by a chance or community chest cell
 
         Random rdm = new Random();
         #endregion
 
         #region Constructors
+        public Player() { }
         public Player(string name)
         {
             this.name = name.ToUpper();
@@ -33,6 +35,7 @@ namespace MonopolyGame
             fails_to_exit_jail = 0;
             visit_only = false;
             lose = false;
+            joker_exit_jail = false;
         }
         #endregion
 
@@ -77,6 +80,11 @@ namespace MonopolyGame
             get { return lose; }
             set { lose = value; }
         }
+        public bool Joker_exit_jail
+        {
+            get { return joker_exit_jail; }
+            set { joker_exit_jail = value; }
+        }
         public Random Rdm
         {
             get { return rdm; }
@@ -119,6 +127,7 @@ namespace MonopolyGame
 
             if (this.current_position == 30) // if the player lands on Go To Jail cell (cell number 30)
             {
+                Console.WriteLine("Oh no! You land on the cell 'Go to Jail!'. I'm sorry but you have to go directly in jail buddy");
                 this.current_position = 10; // move player to Jail
                 this.is_in_jail = true; // In Jail status is changed
             }
@@ -143,7 +152,12 @@ namespace MonopolyGame
             bool exit_jail = false;
             Console.WriteLine("You're in jail. Number of turn : " + (fails_to_exit_jail + 1));
 
-            if (dice[0] == dice[1]) // The player hit a set of doubles
+            if (joker_exit_jail) //if the player had a joker card, he can go out of jail
+            {
+                exit_jail = true;
+                joker_exit_jail = false; // the card is no longer available
+            }
+            else if (dice[0] == dice[1]) // The player hit a set of doubles
             {
                 Console.WriteLine("Wow! This double allows you to be free!");
                 exit_jail = true; // The player can exit of jail
@@ -181,11 +195,42 @@ namespace MonopolyGame
         }
 
         /// <summary>
+        /// Method that will determine if the player possess all the property of the same family or not
+        /// </summary>
+        /// <param name="property">The current property</param>
+        /// <returns></returns>
+        public bool FamilyComplete(Property property)
+        {
+            bool family_complete = false;
+
+            //we first collect the label of the observed property and the number of member of it's family
+            string name = property.Name;
+            string label = property.Label;
+            int nb_family = property.Number_family;
+
+            int counter = 1;
+
+            for (int i = 0; i < owned_properties.Count; i++)
+            {
+                //we count the number of properties of the same family the player own
+                if (owned_properties[i].Label == label && owned_properties[i].Name != name) counter++; 
+            }
+
+            if (counter == nb_family) family_complete = true;
+            return family_complete;
+        }
+
+        /// <summary>
         /// Method used to show the message associated with any update
         /// </summary>
-        public override void Update()
+        public override void Update(string property_name, int property_position, string name_owner)
         {
+            message = "\n\nMessage for the observer (player) : " + name + "\n";
+            message += name_owner + " has juste bought the property : " + property_name + "! It is at the position : " + property_position;
+            message += "\nBe aware! You will have to pay this player if you land on this cell!";
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(message);
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         public override string ToString()
@@ -193,7 +238,7 @@ namespace MonopolyGame
             string content = "Player : " + name + "\nYou are in the position " + current_position + " in the game board.\nYou have $" + money;
             if (owned_properties.Count != 0)
             {
-                content += "\nYou own the following properties : ";
+                content += "\nYou own the following properties : \n";
                 for (int i = 0; i <= owned_properties.Count -1; i++)
                 {
                     content += owned_properties[i].DescriptionProperty();

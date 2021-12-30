@@ -59,8 +59,8 @@ namespace MonopolyGame
         /// <returns></returns>
         public override string ToString()
         {
-            string content = "Cell position : " + position + "\nHere is the " + name + " cell.\nThis is a special cell. Let's see what is this one :)";
-            if (go_cell) return content += "\nThis is the go cell. Each time you pass this cell you will receive $200.";
+            string content = "Cell position : " + position + "\nHere is the " + name + " cell.\nThis is a special cell. Let's see what will do this one :)";
+            if (go_cell) return content += "\n\nEach time you pass this cell you will receive $200.";
             else if (go_to_jail) return content += "\nOh no! This is the cell 'Go to jail'. I'm sorry but you have to go directly in prison ! Be patient it will be okay :).";
             else if (free_parking) return content += "\nThis is the free parking cell. You have nothing to do here, you can rest peacfully :).";
             else return content;

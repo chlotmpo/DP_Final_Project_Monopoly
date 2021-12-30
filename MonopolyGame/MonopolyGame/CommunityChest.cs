@@ -28,8 +28,6 @@ namespace MonopolyGame
             debt = 0;
             free_jail = false;
             go_in_jail = false;
-            number = Community_Chest_number();
-            message = Community_Chest_message();
         }
         #endregion
 
@@ -47,6 +45,11 @@ namespace MonopolyGame
         {
             get { return bonus; }
             set { bonus = value; }
+        }
+        public int Debt
+        {
+            get { return debt; }
+            set { debt = value; }
         }
         public bool Free_jail
         {
@@ -73,10 +76,10 @@ namespace MonopolyGame
         public int Community_Chest_number()
         {
             // we create a random object (maybe create a random object in the game and pass it in the parameters)
-            Random rdm2 = new Random();
+            Random rdm= new Random();
 
             // now we want to have a random int between the values 1 and 10, to do so we use the following function associated to the random object
-            int number = rdm2.Next(1, 11);
+            int number = rdm.Next(1, 11);
 
             // we return this random int
             return number;
@@ -136,6 +139,11 @@ namespace MonopolyGame
             return msg;
         }
 
+        public void Draw_CommunityChest()
+        {
+            number = Community_Chest_number();
+            message = Community_Chest_message();
+        }
         /// <summary>
         /// Method that give a description of this community chest cell
         /// </summary>

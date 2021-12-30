@@ -28,7 +28,6 @@ namespace MonopolyGame
             debt = 0;
             free_jail = false;
             go_in_jail = false;
-            Draw_Chance();
         }
         #endregion
 
