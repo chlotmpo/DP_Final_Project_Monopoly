@@ -30,6 +30,7 @@ namespace MonopolyGame
             this.name = name.ToUpper();
             current_position = 0;
             money = 1500;
+            //money = 300;
             owned_properties = new List<Property>();
             is_in_jail = false;
             fails_to_exit_jail = 0;
@@ -102,6 +103,9 @@ namespace MonopolyGame
             int dice1 = rdm.Next(1, 7);
             int dice2 = rdm.Next(1, 7);
 
+            //int dice1 = 1;
+            //int dice2 = 1;
+
             // creating the tab that contain the results of the two rolled dice
             int[] result_dice = new int[] { dice1, dice2 };
 
@@ -125,13 +129,14 @@ namespace MonopolyGame
 
             if (this.current_position == 10) this.visit_only = true; // if the player lands on Jail cell (cell number 10)
 
+
             if (this.current_position == 30) // if the player lands on Go To Jail cell (cell number 30)
             {
                 Console.WriteLine("Oh no! You land on the cell 'Go to Jail!'. I'm sorry but you have to go directly in jail buddy");
                 this.current_position = 10; // move player to Jail
                 this.is_in_jail = true; // In Jail status is changed
             }
-            else
+            else // if he didn't end up in jail, then he can collect the bonus
             {
                 if (current_position < actual_position) // This means that the player has begun a new turn on the board
                 {
@@ -141,6 +146,8 @@ namespace MonopolyGame
             }
 
         }
+
+
 
         /// <summary>
         /// This method establish if the player can exit jail or not
@@ -213,11 +220,22 @@ namespace MonopolyGame
             for (int i = 0; i < owned_properties.Count; i++)
             {
                 //we count the number of properties of the same family the player own
-                if (owned_properties[i].Label == label && owned_properties[i].Name != name) counter++; 
+                if (owned_properties[i].Label == label && owned_properties[i].Name != name) counter++;
             }
 
             if (counter == nb_family) family_complete = true;
             return family_complete;
+        }
+
+        /// <summary>
+        /// Method that count the number of Railroads property owned by the actual player
+        /// </summary>
+        /// <returns> Number of railroads </returns>
+        public int NumberOfRailroads()
+        {
+            int counter = 0;
+            owned_properties.ForEach(delegate (Property p) { if (p.Label == "Railroad") counter++; });
+            return counter;
         }
 
         /// <summary>
@@ -238,7 +256,7 @@ namespace MonopolyGame
             string content = "Player : " + name + "\nYou are in the position " + current_position + " in the game board.\nYou have $" + money;
             if (owned_properties.Count != 0)
             {
-                content += "\nYou own the following properties : \n";
+                content += "\nYou own the following properties : ";
                 for (int i = 0; i <= owned_properties.Count -1; i++)
                 {
                     content += owned_properties[i].DescriptionProperty();

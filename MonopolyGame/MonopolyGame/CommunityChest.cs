@@ -92,6 +92,8 @@ namespace MonopolyGame
         public string Community_Chest_message()
         {
             string msg = "";
+            bonus = 0;
+            debt = 0;
             switch (this.number)
             {
                 case (1):

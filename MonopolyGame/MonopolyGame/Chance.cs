@@ -90,7 +90,11 @@ namespace MonopolyGame
         public string Chance_message()
         {
             string msg = "";
-            switch(this.number)
+
+            bonus = 0;
+            debt = 0;
+
+            switch (this.number)
             {
                 case (1):
                     bonus = 200;

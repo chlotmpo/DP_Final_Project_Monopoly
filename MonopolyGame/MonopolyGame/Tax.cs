@@ -10,14 +10,14 @@ namespace MonopolyGame
     {
         #region Attributes 
         // TODO : define all the attributes that we need to correclty instantiate a tax cell
-        private double taxAmount;
+        private int taxAmount;
         private string name;
         private int position;
         #endregion
 
         #region Constructors
         public Tax() { }
-        public Tax(string name, double taxAmount, int position)
+        public Tax(string name, int taxAmount, int position)
         {
             this.name = name;
             this.taxAmount = taxAmount;
@@ -26,7 +26,7 @@ namespace MonopolyGame
         #endregion
 
         #region Properties
-        public double TaxAmount
+        public int TaxAmount
         {
             get { return taxAmount; }
         }
@@ -47,7 +47,7 @@ namespace MonopolyGame
         /// <returns></returns>
         public override string ToString()
         {
-            return "Cell position : " + position + "\nYou are on a tex cell. That means that you will have to pay an amount of money to the bank.\nPay now $" + taxAmount + ".";
+            return "Cell position : " + position + "\nYou are on a tax cell. That means that you will have to pay an amount of money to the bank.\nPay now $" + taxAmount + ".";
         }
         #endregion
     }

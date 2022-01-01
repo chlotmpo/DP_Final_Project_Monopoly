@@ -115,14 +115,14 @@ namespace MonopolyGame
         public string ToString()
         {
             string content = "Cell position : " + position + "\nYou are on a property.\nProperty name : " + name + "\nColor : " + label + "\nPosition : " + position + "\nPrice : $" + price;
-            if (is_free) content += "\nStatus of the property : FREE";
+            if (is_free) content += "\nStatus of the property : AVAILABLE";
             else content += "\nStatus of the property : NOT AVAILABLE";
             return content;
         }
 
         public string DescriptionProperty()
         {
-            return "\nProperty Name : " + name + "\nLabel : " + label + "\n"; 
+            return $"\n - Property Name : {name}  ({label})" ; 
             //TODO : add debt price when we will defined it + add house and hotel if there are one
         }
 

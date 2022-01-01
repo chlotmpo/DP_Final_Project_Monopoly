@@ -32,7 +32,7 @@ namespace MonopolyGame
             boardGame[2] = new CommunityChest(2);
             boardGame[3] = new Property("Coventry Street", 60, 6, "Brown", 2, 3);
             boardGame[4] = new Tax("Income Tax", 200, 4);
-            boardGame[5] = new Property("Marylebone Station", 200, 25,"Train", 4, 5);
+            boardGame[5] = new Property("Marylebone Station", 200, 25, "Railroad", 4, 5);
             boardGame[6] = new Property("Leicester Square", 100, 8, "Light Blue", 3, 6);
             boardGame[7] = new Chance(7);
             boardGame[8] = new Property("Bow Street", 100, 8, "Light Blue", 3, 8);
@@ -42,7 +42,7 @@ namespace MonopolyGame
             boardGame[12] = new Property("Electric Company", 150, 10, "Company", 2, 12);
             boardGame[13] = new Property("Trafalgar Square", 140, 12, "Purple", 3, 13);
             boardGame[14] = new Property("Northumrl'd Avenue", 160, 14, "Purple", 3, 14);
-            boardGame[15] = new Property("Fenchurch St. Station", 200, 25,"Train", 4, 15);
+            boardGame[15] = new Property("Fenchurch St. Station", 200, 25, "Railroad", 4, 15);
             boardGame[16] = new Property("M'Borough Street", 180, 16, "Orange", 3, 16);
             boardGame[17] = new CommunityChest(17);
             boardGame[18] = new Property("Fleet Street", 180, 16, "Orange", 3, 18);
@@ -52,7 +52,7 @@ namespace MonopolyGame
             boardGame[22] = new Chance(22);
             boardGame[23] = new Property("Pentonville Road", 220, 20, "Red", 3, 23);
             boardGame[24] = new Property("Pall Mall", 240, 24, "Red", 3, 24);
-            boardGame[25] = new Property("Kings Cross Station", 200, 25, "No color", 4, 25);
+            boardGame[25] = new Property("Kings Cross Station", 200, 25, "Railroad", 4, 25);
             boardGame[26] = new Property("Bond Street", 260, 26, "Yellow", 3, 26);
             boardGame[27] = new Property("Strand", 260, 26, "Yellow", 3, 27);
             boardGame[28] = new Property("Water Works", 150, 10, "Company", 2, 28);
@@ -62,7 +62,7 @@ namespace MonopolyGame
             boardGame[32] = new Property("Piccadilly", 300, 30, "Green", 3, 32);
             boardGame[33] = new CommunityChest(33);
             boardGame[34] = new Property("Oxford Street", 320, 32, "Green", 3, 34);
-            boardGame[35] = new Property("Liverpool St. Station", 200, 25, "No color", 4, 35);
+            boardGame[35] = new Property("Liverpool St. Station", 200, 25, "Railroad", 4, 35);
             boardGame[36] = new Chance(36);
             boardGame[37] = new Property("Park Lane", 350, 34, "Dark Blue", 2, 37) ;
             boardGame[38] = new Tax("Luxury Tax", 100, 38);
