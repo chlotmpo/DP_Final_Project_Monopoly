@@ -121,8 +121,8 @@ namespace MonopolyGame
                     msg = "Your close friend robbed the bank without getting caught and you know about it. To buy your silence, he pays you $300.";
                     break;
                 case (7):
-                    bonus = 18;
-                    msg = "It's your lucky day. When you walk around here, you find some money on the ground. Get $18.";
+                    bonus = 118;
+                    msg = "It's your lucky day. When you walk around here, you find some money on the ground. Get $118.";
                     break;
                 case (8):
                     msg = "This chance number is not going to bring you anything or ask you anything today. She just wishes you a good day.";

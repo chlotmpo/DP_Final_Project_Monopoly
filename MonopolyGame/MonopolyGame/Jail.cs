@@ -11,7 +11,7 @@ namespace MonopolyGame
         #region Attributes
         // TODO : define all the attributes that we need to correclty instantiate a jail cell
         private int position;
-        private bool is_occupied; // give information if there is currently somoene in jail or not
+        private List<string> list_player_in_jail; // represents the list of names of the player that are in jail 
         #endregion
 
         #region Constructors
@@ -19,19 +19,19 @@ namespace MonopolyGame
         public Jail(int position)
         {
             this.position = position;
-            is_occupied = false;
+            list_player_in_jail = new List<string>();
         }
         #endregion
 
         #region Properties 
-        public bool Is_occupied
-        {
-            get { return is_occupied; }
-            set { is_occupied = value; }
-        }
         public int Position
         {
             get { return position; }
+        }
+        public List<string> List_player_in_jail
+        {
+            get { return list_player_in_jail; }
+            set { list_player_in_jail = value; }
         }
         #endregion
 
@@ -42,9 +42,17 @@ namespace MonopolyGame
         /// <returns></returns>
         public override string ToString()
         {
-            string content = "Cell position : " + position + "\nThis is the jail";
-            if (is_occupied) content += "\nRigth now, one or more player(s) is/are in jail.";
-            else content += "\nRight now, no one is in jail.";
+            string content = "Cell position : " + position + "\nThis is the jail\n";
+            if (list_player_in_jail.Count == 0) content += "\nRigth now, no one is in jail.";
+            else if(list_player_in_jail.Count > 0) //some players are currently in jail 
+            {
+                foreach (string player_name in list_player_in_jail)
+                {
+                    content += player_name + " is actually in jail.\n";
+                }
+
+
+            }
             return content;
         }
 

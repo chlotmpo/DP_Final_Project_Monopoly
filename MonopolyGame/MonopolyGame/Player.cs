@@ -117,7 +117,7 @@ namespace MonopolyGame
         /// Method that will move the player forward from his current position with a number defined before with the rolling dice
         /// </summary>
         /// <param name="dice"> The set of 2 dice </param>
-        public void MoveToPosition(int[] dice)
+        public void MoveToPosition(int[] dice, ICell[] boardGame)
         {
             visit_only = false;
 
@@ -135,6 +135,9 @@ namespace MonopolyGame
                 Console.WriteLine("Oh no! You land on the cell 'Go to Jail!'. I'm sorry but you have to go directly in jail buddy");
                 this.current_position = 10; // move player to Jail
                 this.is_in_jail = true; // In Jail status is changed
+                Jail j = (Jail)boardGame[10];
+                j.List_player_in_jail.Add(this.name); //we add the name of this player in the list of the players currently in jail.
+                boardGame[10] = j; //the status of the jail is actualized
             }
             else // if he didn't end up in jail, then he can collect the bonus
             {
@@ -154,7 +157,7 @@ namespace MonopolyGame
         /// </summary>
         /// <param name="dice"> set of dice rolled by the player </param>
         /// <returns> true if the player can exit jail </returns>
-        public bool CanExitJail(int[] dice)
+        public bool CanExitJail(int[] dice, ICell[] boardGame)
         {
             bool exit_jail = false;
             Console.WriteLine("You're in jail. Number of turn : " + (fails_to_exit_jail + 1));
@@ -184,6 +187,13 @@ namespace MonopolyGame
                     exit_jail = false;
                     this.fails_to_exit_jail += 1; // The player stays in jail for another turn
                 }
+            }
+
+            if(exit_jail) //if the player can go out of jail
+            {
+                Jail j = (Jail)boardGame[10];
+                j.List_player_in_jail.Remove(this.name); //we remove this player n the list of the player currently in jail
+                boardGame[10] = j;
             }
 
             return exit_jail;
