@@ -133,8 +133,8 @@ namespace MonopolyGame
                     msg = "Pay school fees of $50";
                     break;
                 case (10):
-                    bonus = 10;
-                    msg = "You have won second prize in a beauty contest. Collect $10";
+                    bonus = 80;
+                    msg = "You have won second prize in a beauty contest. Collect $80";
                     break;
 
             }

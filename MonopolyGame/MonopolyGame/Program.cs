@@ -176,7 +176,7 @@ namespace MonopolyGame
         public static void PlayersInfo(Player p, int i)
         {
             string bar = " ---------------------------------------------------------";
-            string info = $"\n | {p.Name}:  [Money: {p.Money}$      Position: {p.Current_position}      Properties: {p.Own_properties.Count}] |"
+            string info = $"\n | {p.Name}:  [Money: {p.Money}$      Position: {p.Current_position}      Properties: {p.Own_properties.Count}] |";
 
             // We assign a different color for each player
             if (i == 0) Console.ForegroundColor = ConsoleColor.Red;
@@ -324,19 +324,19 @@ namespace MonopolyGame
                     if (!player.Is_in_jail) // If the player is not currently in jail
                     {
                         Console.WriteLine("You're moving " + (dice[0] + dice[1]) + " cells");
-                        player.MoveToPosition(dice);
+                        player.MoveToPosition(dice, boardGame);
                     }
 
                     else // If the player is in jail
                     {
-                        if (player.CanExitJail(dice))
+                        if (player.CanExitJail(dice, boardGame))
                         {
                             Console.WriteLine(" Somehow you're free, runaway !");
                             player.Is_in_jail = false; // the player is not in jail anymore
                             player.Visit_only = true; // we set to him the sisit only status, because he is in the jail cell but now as a visitor
                             jail_free = true; // to note that the player is just free out of jail
                             Console.WriteLine("You're moving " + (dice[0] + dice[1]) + " cells");
-                            player.MoveToPosition(dice); // if the player eligible to get out of jail then he can move forward. Else, he stays in jail for another turn
+                            player.MoveToPosition(dice, boardGame); // if the player eligible to get out of jail then he can move forward. Else, he stays in jail for another turn
                         }
                     }
 
@@ -357,6 +357,9 @@ namespace MonopolyGame
                 Console.WriteLine("Oh no! You obtained 3 doubled dice in a row, you are going immediatly to jail!");
                 player.Is_in_jail = true;
                 player.Current_position = 10;
+                Jail j = (Jail)boardGame[10];
+                j.List_player_in_jail.Add(player.Name); //we add this player in the list of the players currently in jail
+                boardGame[10] = j;
             }
 
 
@@ -510,6 +513,11 @@ namespace MonopolyGame
                     Console.WriteLine("\nYou go to jail.");
                     player.Current_position = 10; //we update the position of the player
                     player.Is_in_jail = true; //we update the jail status of the player
+
+                    //we actualized the status of the list of current players in jail 
+                    Jail jail = (Jail)boardGame[10];
+                    j.List_player_in_jail.Add(player.Name);
+                    boardGame[10] = j;
                 }
 
                 else if (chance.Free_jail)
@@ -552,6 +560,12 @@ namespace MonopolyGame
                     Console.WriteLine("\nYou go to jail.");
                     player.Current_position = 10; //we update the position of the player
                     player.Is_in_jail = true; //we update the jail status of the player
+
+
+                    //we actualized the status of the list of current players in jail 
+                    Jail jail = (Jail)boardGame[10];
+                    j.List_player_in_jail.Add(player.Name);
+                    boardGame[10] = j;
                 }
 
                 else if (comu.Free_jail)
