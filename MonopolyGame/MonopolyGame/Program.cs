@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -257,10 +257,7 @@ namespace MonopolyGame
                 if (boardGame[i].GetType() == p.GetType()) //if the current cell is a property
                 {
                     p = (Property)boardGame[i]; //we collect this property
-                    for (int y = 0; y <= list_players.Count - 1; y++)
-                    {
-                        p.AddEventObservers.Add(list_players[y]); // we had all the players (they are the observers) in the observers list of the properties
-                    }
+                    p.AddAllObservers(list_players);
                     boardGame[i] = p; // we set this updated property in the boardgame
                 }
             }
@@ -463,7 +460,7 @@ namespace MonopolyGame
                             player.Own_properties.Add(prop); //we add this property to the list of the player's properties
                             prop.Is_free = false; // we must update the property too, it is not free anymore
                             prop.Property_owner = player; // we inform the property of it's player owner
-                            prop.notifyObserver(player.Name); // the property has just been bought. The observer must be notified.
+                            prop.NotifyObserver(player.Name); // the property has just been bought. The observer must be notified.
                             boardGame[position] = prop; // we actualise this property in the game board.
 
 
@@ -516,8 +513,8 @@ namespace MonopolyGame
 
                     //we actualized the status of the list of current players in jail 
                     Jail jail = (Jail)boardGame[10];
-                    j.List_player_in_jail.Add(player.Name);
-                    boardGame[10] = j;
+                    jail.List_player_in_jail.Add(player.Name);
+                    boardGame[10] = jail;
                 }
 
                 else if (chance.Free_jail)
@@ -564,8 +561,8 @@ namespace MonopolyGame
 
                     //we actualized the status of the list of current players in jail 
                     Jail jail = (Jail)boardGame[10];
-                    j.List_player_in_jail.Add(player.Name);
-                    boardGame[10] = j;
+                    jail.List_player_in_jail.Add(player.Name);
+                    boardGame[10] = jail;
                 }
 
                 else if (comu.Free_jail)
@@ -629,7 +626,7 @@ namespace MonopolyGame
                     if (property.Label == "Railroad")
                     {
                         int railroadsOwned = player_owner.NumberOfRailroads();
-                        if (current_player.EnoughMoneyToBuy(price)) //this condition must be reverified
+                        if (current_player.EnoughMoneyToBuy(price*railroadsOwned)) //this condition must be reverified
                         {
                             price = price * railroadsOwned;
                             current_player.Money -= price; //the current player lose money
@@ -645,7 +642,7 @@ namespace MonopolyGame
 
                     else if (player_owner.FamilyComplete(property)) //if the player owner possess all the properties of the same family the debt double!!
                     {
-                        if (current_player.EnoughMoneyToBuy(price)) //this condition must be reverified
+                        if (current_player.EnoughMoneyToBuy(price*2)) //this condition must be reverified
                         {
                             current_player.Money -= price * 2; //the current player lose money
                             player_owner.Money += price * 2;

@@ -29,8 +29,7 @@ namespace MonopolyGame
         {
             this.name = name.ToUpper();
             current_position = 0;
-            money = 1500;
-            //money = 300;
+            money = 500;
             owned_properties = new List<Property>();
             is_in_jail = false;
             fails_to_exit_jail = 0;
@@ -261,6 +260,10 @@ namespace MonopolyGame
             Console.ForegroundColor = ConsoleColor.White;
         }
 
+        /// <summary>
+        /// Method that give all the informations about the current player
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             string content = "Player : " + name + "\nYou are in the position " + current_position + " in the game board.\nYou have $" + money;
