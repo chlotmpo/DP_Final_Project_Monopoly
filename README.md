@@ -75,35 +75,47 @@ A message is then sent to all observers (players).
 
 If the player lands on a **CHANCE CELL or a COMMUNITY CHEST CELL** : A random number is then generated. The program then displays the corresponding message. These cards can bring money, take it out, take the player to jail, get the player out of jail, or do nothing. 
 
+
 ![image](https://user-images.githubusercontent.com/76529865/148659698-e942a688-be41-4c80-a352-1284c94a4f6d.png)
 
 ![image](https://user-images.githubusercontent.com/76529865/148659699-bbfed970-4520-4b77-8a2a-54e3dc36d2dd.png)
 
+
 If the player lands on the **JAIL CELL** : He is simply visiting the prison. The program displays the current situation of the jail, if some players are in it or not. 
+
 
 ![image](https://user-images.githubusercontent.com/76529865/148659707-9f55165d-ef53-486d-99a3-742317f5b194.png)
 
+
 If the player lands on the **GO TO JAIL CELL** : He goes immediatly to jail. 
+
 
 ![image](https://user-images.githubusercontent.com/76529865/148659726-e92f1be2-c750-4fe3-9aa9-2f7466039ae7.png)
 
+
 At the end of each turn, the players’ situation is displayed. 
 
+
 ![image](https://user-images.githubusercontent.com/76529865/148659735-4284f552-f78c-4202-8482-5a4041e8d14f.png)
+
 
 **SPECIAL SITUATIONS** :
 
 When a player **IS IN JAIL** : He’s going to roll the dice when it’s his turn. If he gets a double, then he can get out. Otherwise, he doesn’t move forward and is patient in prison. After 3 truns without doubles, he goes out in any case. 
 
+
 ![image](https://user-images.githubusercontent.com/76529865/148659754-8cec2ff8-b6da-41e6-923e-eb4fab19124c.png)
 
 
+
 When a player **OWNED SEVERAL RAILROADS** : If a player arrives at a railroad already purchased by a player and the latter has several railroads then the amount to be paid will be multiplied by the number of stations owned.
+
 
 ![image](https://user-images.githubusercontent.com/76529865/148659762-e6a74ef1-c2c3-485f-a5a3-16d7941136a6.png)
 
 
 When a player **OWNED ALL THE PROPERTIES OF THE SAME FAMILY** : If a player has all the properties of the same color or all the companies then if a player passes on one of these properties, the price to pay will be doubled. 
+
 
 ![image](https://user-images.githubusercontent.com/76529865/148659772-9c886cd2-4b17-4ad4-80a2-e4850cd6acb2.png)
 
@@ -111,11 +123,13 @@ When a player **OWNED ALL THE PROPERTIES OF THE SAME FAMILY** : If a player has 
 **A PLAYER LOSES** :
 A player loses the game when he does not have enough money to pay another player, or a cell on which he landed. He is then removed from the game and all the properties he bought are put back into the game. 
 
+
 ![image](https://user-images.githubusercontent.com/76529865/148659782-81f29863-5de5-41ab-84d2-53ae0144f61e.png)
 
 
 **WIN THE GAME**:
 To win the game, one player muste have ruined all the others. When all the others have no more money and he is the last player to compete, he is then declared the winner. The following message appears in the console. The game is over.
+
 
 ![image](https://user-images.githubusercontent.com/76529865/148659797-d1743ef2-7926-43ed-8605-d5ec4a562384.png)
 
