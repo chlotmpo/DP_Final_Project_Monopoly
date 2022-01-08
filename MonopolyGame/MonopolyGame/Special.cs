@@ -11,7 +11,7 @@ namespace MonopolyGame
         #region Attributes
         // TODO : define all the attributes that we need to correclty instantiate a special cell
         private string name; // represents the name of this special cell
-        private int position;
+        private int position; // represents the position of the special cell
         private bool go_cell; // represents if the cell is the go cell or not 
         private bool go_to_jail; // represents if the cell is the cell go to jail or not
         private bool free_parking; // represents if the cell is the cell free parking or not

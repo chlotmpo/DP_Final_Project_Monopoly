@@ -36,6 +36,7 @@ namespace MonopolyGame
         public int Number
         {
             get { return number; }
+            set { number = value; }
         }
         public string Message
         {

@@ -13,7 +13,6 @@ namespace MonopolyGame
         private ICell[] boardGame;
         private static BoardSingleton instance = null;
         private static readonly object padlock = new object();
-        public static int number_instance;
         #endregion
 
         #region Constructors
@@ -26,7 +25,7 @@ namespace MonopolyGame
             // first we create a new tab with 40 elements that will represents the board game with 40 possibles positions
             boardGame = new ICell[40];
 
-            //now we will define each element of the game board by creating the correspondinf objects
+            //now we will define each element of the game board by creating the corresponding objects
             boardGame[0] = new Special("Go Cell", 0, true, false, false);
             boardGame[1] = new Property("Vine Street", 60, 104,"Brown", 2, 1);
             boardGame[2] = new CommunityChest(2);
@@ -83,7 +82,6 @@ namespace MonopolyGame
                     if (instance == null)
                     {
                         instance = new BoardSingleton();
-                        number_instance++; //to test if only one instance has been created
                     }
                     return instance;
                 }

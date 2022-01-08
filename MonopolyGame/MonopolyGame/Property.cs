@@ -19,7 +19,7 @@ namespace MonopolyGame
         private int number_family; //represent how many other property belongs to the same group (the ones who have the same color)
         private bool house;
         private bool hotel;
-        private List<AbstractObserver> addEventObserver;
+        private List<AbstractObserver> observers;
         private int position;
         #endregion
 
@@ -36,7 +36,7 @@ namespace MonopolyGame
             this.number_family = number_family;
             house = false;
             hotel = false;
-            addEventObserver = new List<AbstractObserver>();
+            observers = new List<AbstractObserver>();
             this.position = position;
         }
         #endregion
@@ -82,10 +82,10 @@ namespace MonopolyGame
             get { return hotel; }
             set { hotel = value; }
         }
-        public List<AbstractObserver> AddEventObservers
+        public List<AbstractObserver> Observers
         {
-            get { return addEventObserver; }
-            set { addEventObserver = value; }
+            get { return observers; }
+            set { observers = value; }
         }
         public int Position
         {
@@ -99,15 +99,23 @@ namespace MonopolyGame
         /// Method that will notify all observers
         /// </summary>
         /// <param name="player_name"></param>
-        public void notifyObserver(string player_name)
+        public void NotifyObserver(string player_name)
         {
             if(!is_free) //verify this condition, the property must be bought
             {
-                foreach (AbstractObserver o in addEventObserver)
+                foreach (AbstractObserver o in observers)
                 {
                     Player p = (Player)o;
                     if (p.Name != player_name) o.Update( name, position, player_name);
                 }
+            }
+        }
+
+        public void AddAllObservers(List<Player> list_players)
+        {
+            for (int y = 0; y <= list_players.Count - 1; y++)
+            {
+                observers.Add(list_players[y]); // we add all the players (they are the observers) in the observers list of the properties
             }
         }
 
