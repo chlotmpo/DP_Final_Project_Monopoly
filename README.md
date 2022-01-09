@@ -40,11 +40,13 @@ So we decided to implement this design pattern to inform all players who wait th
 ### Class Diagram
 Here is the UML class diagram of the solution, it is completed with the design patterns seen above.
 The aim Program class, which represent a game, is to run the Monopoly.
+
 ![image](https://user-images.githubusercontent.com/94895152/148692690-5a896a69-1e75-436d-a971-28d11c097b0a.png)
 
 ### Sequence Diagram
 We decided to represent a simple use case : Buying a property.
 In this sequence diagram you can follow the différents steps to acquire a property and the interactions between the user and the program through the console interface.
+
 ![image](https://user-images.githubusercontent.com/94895152/148692643-e23b2ed9-a6cd-4da7-a38c-9caa8312dcc8.png)
 
 ## Sequence of the game <a name="sequence_game"></a>
