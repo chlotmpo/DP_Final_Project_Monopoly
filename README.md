@@ -2,6 +2,9 @@
 Monopoly is a real-estate board game for two to eight players. The player's goal is to remain financially solvent while forcing opponents into bankruptcy by buying and developing pieces of property. Bankruptcy results in elimination from the game.
 We implemented a simplified version of monopoly in C#, through common software development practices. The rest of this document details the implementation of our project.
 
+## Team
+This project was realised by Chloé TEMPO and Matthieu THIBAUT
+
 ## Table of Content 
 1. [Design Implementation](#design_implementation)
 2. [UML and Sequence diagrams](#uml_sequence_diag)
